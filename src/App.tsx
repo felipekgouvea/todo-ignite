@@ -20,12 +20,29 @@ function App() {
     setTasks(tasksWithoutDeleteOne)
   }
 
+  const toggleTaskCompleteById = (taskId: string) => {
+    const newTask = tasks.map((task) => {
+      if (task.id === taskId) {
+        return {
+          ...task,
+          isComplete: !task.isComplete,
+        }
+      }
+      return task
+    })
+    setTasks(newTask)
+  }
+
   return (
     <div>
       <Header onAddTask={addTask} />
       <div className={styles.wrapper}>
         <main>
-          <Tasks tasks={tasks} onDeleteTask={deleteTask} />
+          <Tasks
+            tasks={tasks}
+            onDeleteTask={deleteTask}
+            onComplete={toggleTaskCompleteById}
+          />
         </main>
       </div>
     </div>

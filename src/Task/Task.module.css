@@ -17,14 +17,10 @@
   margin-right: auto;
 }
 
-.taskComplete p {
+.taskComplete {
   text-decoration: line-through;
   color: var(--gray-300);
-}
-
-p.textCompleted{
-  color: var(--gray-300);
-  text-decoration: line-through;
+  opacity: 0.2;
 }
 
 .task input[type="checkbox"]{

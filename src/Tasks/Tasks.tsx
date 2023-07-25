@@ -6,9 +6,10 @@ import Clipboard from '../assets/clipboard.svg'
 interface TasksProps {
   tasks: TaskType[]
   onDeleteTask: (id: string) => void
+  onComplete: (id: string) => void
 }
 
-export const Tasks = ({ tasks, onDeleteTask }: TasksProps) => {
+export const Tasks = ({ tasks, onDeleteTask, onComplete }: TasksProps) => {
   const tasksQuantity = tasks.length
   const completedTasks = tasks.filter((tasks) => tasks.isComplete).length
 
@@ -28,7 +29,14 @@ export const Tasks = ({ tasks, onDeleteTask }: TasksProps) => {
       </header>
       <div className={styles.listTasks}>
         {tasks.map((task) => {
-          return <Task key={task.id} task={task} onDeleteTask={onDeleteTask} />
+          return (
+            <Task
+              key={task.id}
+              task={task}
+              onDeleteTask={onDeleteTask}
+              onComplete={onComplete}
+            />
+          )
         })}
 
         {tasksQuantity === 0 && (
