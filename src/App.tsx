@@ -19,12 +19,19 @@ function App() {
     setTasks([...tasks, newTask])
   }
 
+  const deleteTask = (taskId: string) => {
+    const tasksWithoutDeleteOne = tasks.filter((task) => {
+      return task.id !== taskId
+    })
+    setTasks(tasksWithoutDeleteOne)
+  }
+
   return (
     <div>
       <Header onAddTask={addTask} />
       <div className={styles.wrapper}>
         <main>
-          <Tasks tasks={tasks} />
+          <Tasks tasks={tasks} onDeleteTask={deleteTask} />
         </main>
       </div>
     </div>
