@@ -1,7 +1,12 @@
 import { Task } from '../Task/Task'
+import { TaskType } from '../types/TaskType'
 import styles from './Tasks.module.css'
 
-export const Tasks = () => {
+interface TasksProps {
+  tasks: TaskType
+}
+
+export const Tasks = ({ tasks }: TasksProps) => {
   return (
     <section className={styles.tasks}>
       <header className={styles.header}>
@@ -15,7 +20,9 @@ export const Tasks = () => {
         </div>
       </header>
       <div className={styles.listTasks}>
-        <Task />
+        {tasks.map((task) => {
+          return <Task key={task.id} task={task} />
+        })}
       </div>
     </section>
   )

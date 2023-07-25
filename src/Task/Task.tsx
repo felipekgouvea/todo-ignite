@@ -1,11 +1,16 @@
+import { TaskType } from '../types/TaskType'
 import styles from './Task.module.css'
 import { Trash } from 'phosphor-react'
 
-export const Task = () => {
+interface TaskProps {
+  task: TaskType
+}
+
+export const Task = ({ task }: TaskProps) => {
   return (
     <div className={styles.task}>
       <input type="checkbox" />
-      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos</p>
+      <p>{task.title}</p>
       <button className={styles.deleteButton}>
         <Trash size={20} />
       </button>
