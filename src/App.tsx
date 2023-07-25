@@ -15,7 +15,8 @@ function App() {
   ])
 
   const addTask = (taskText: string) => {
-    setTasks([...tasks, taskText])
+    const newTask = { id: uuidv4(), title: taskText, isComplete: false }
+    setTasks([...tasks, newTask])
   }
 
   return (
