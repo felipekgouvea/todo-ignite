@@ -4,12 +4,11 @@ import { Trash } from 'phosphor-react'
 
 interface TaskProps {
   task: TaskType
-  onComplete: () => void
 }
 
-export const Task = ({ task, onComplete }: TaskProps) => {
+export const Task = ({ task }: TaskProps) => {
   return (
-    <div className={task.isComplete ? styles.taskComplete : styles.task}>
+    <div className={styles.task}>
       <input type="checkbox" />
       <p>{task.title}</p>
       <button className={styles.deleteButton}>

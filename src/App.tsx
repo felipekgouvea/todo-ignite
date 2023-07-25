@@ -7,31 +7,15 @@ import { TaskType } from './types/TaskType.ts'
 
 function App() {
   const [tasks, setTasks] = useState<TaskType[]>([
-    { id: uuidv4(), title: 'Realizar o desafio do Ignite', isComplete: false },
+    {
+      id: uuidv4(),
+      title: 'Realizar o desafio do Ignite',
+      isComplete: false,
+    },
   ])
 
   const addTask = (taskText: string) => {
-    setTasks([
-      ...tasks,
-      {
-        id: uuidv4(),
-        title: taskText,
-        isCompleted: false,
-      },
-    ])
-  }
-
-  const toggleTaskCompleteById = (taskId: string) => {
-    const newTasks = tasks.map((task) => {
-      if (task.id === taskId) {
-        return {
-          ...tasks,
-          isCompleted: !task.isCompleted,
-        }
-      }
-      return tasks
-    })
-    setTasks(newTasks)
+    setTasks([...tasks, taskText])
   }
 
   return (
@@ -39,7 +23,7 @@ function App() {
       <Header onAddTask={addTask} />
       <div className={styles.wrapper}>
         <main>
-          <Tasks tasks={tasks} onComplete={toggleTaskCompleteById} />
+          <Tasks tasks={tasks} />
         </main>
       </div>
     </div>

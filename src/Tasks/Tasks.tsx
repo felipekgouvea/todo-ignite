@@ -3,11 +3,10 @@ import { TaskType } from '../types/TaskType'
 import styles from './Tasks.module.css'
 
 interface TasksProps {
-  tasks: TaskType
-  onComplete: () => void
+  tasks: TaskType[]
 }
 
-export const Tasks = ({ tasks, onComplete }: TasksProps) => {
+export const Tasks = ({ tasks }: TasksProps) => {
   const tasksQuantity = tasks.length
   const completedTasks = tasks.filter((tasks) => tasks.isComplete).length
 
