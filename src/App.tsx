@@ -6,13 +6,7 @@ import { v4 as uuidv4 } from 'uuid'
 import { TaskType } from './types/TaskType.ts'
 
 function App() {
-  const [tasks, setTasks] = useState<TaskType[]>([
-    {
-      id: uuidv4(),
-      title: 'Realizar o desafio do Ignite',
-      isComplete: false,
-    },
-  ])
+  const [tasks, setTasks] = useState<TaskType[]>([])
 
   const addTask = (taskText: string) => {
     const newTask = { id: uuidv4(), title: taskText, isComplete: false }

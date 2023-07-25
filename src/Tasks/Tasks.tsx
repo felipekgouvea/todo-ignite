@@ -1,6 +1,7 @@
 import { Task } from '../Task/Task'
 import { TaskType } from '../types/TaskType'
 import styles from './Tasks.module.css'
+import Clipboard from '../assets/clipboard.svg'
 
 interface TasksProps {
   tasks: TaskType[]
@@ -29,6 +30,14 @@ export const Tasks = ({ tasks, onDeleteTask }: TasksProps) => {
         {tasks.map((task) => {
           return <Task key={task.id} task={task} onDeleteTask={onDeleteTask} />
         })}
+
+        {tasksQuantity === 0 && (
+          <div className={styles.hasNoTasks}>
+            <img src={Clipboard} alt="Sem Tarefas" />
+            <p>Você ainda não tem tarefas cadastradas</p>
+            <span>Crie tarefas e organize seus itens a fazer</span>
+          </div>
+        )}
       </div>
     </section>
   )
