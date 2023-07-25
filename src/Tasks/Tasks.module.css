@@ -2,8 +2,7 @@
   width: 100%;
   max-width: 46rem;
   margin: 0 auto;
-  margin-top: 5.625rem;
-  padding: 0 1rem;
+  margin-top: 5.625rem;     
 }
 
 .header{
@@ -44,4 +43,10 @@
   display: flex;
   flex-direction: column;
   gap: .75rem;
+}
+
+@media(max-width: 768px){
+  .tasks{      
+    padding: 0;
+  }
 }

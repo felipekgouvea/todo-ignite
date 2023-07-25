@@ -4,19 +4,25 @@ import styles from './Tasks.module.css'
 
 interface TasksProps {
   tasks: TaskType
+  onComplete: () => void
 }
 
-export const Tasks = ({ tasks }: TasksProps) => {
+export const Tasks = ({ tasks, onComplete }: TasksProps) => {
+  const tasksQuantity = tasks.length
+  const completedTasks = tasks.filter((tasks) => tasks.isComplete).length
+
   return (
     <section className={styles.tasks}>
       <header className={styles.header}>
         <div>
           <p>Tarefas criadas</p>
-          <span>10</span>
+          <span>{tasksQuantity}</span>
         </div>
         <div>
           <p className={styles.textPurple}>Concluídas</p>
-          <span>0 de 10</span>
+          <span>
+            {completedTasks} de {tasksQuantity}
+          </span>
         </div>
       </header>
       <div className={styles.listTasks}>

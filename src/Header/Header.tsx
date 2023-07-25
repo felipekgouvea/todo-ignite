@@ -23,7 +23,6 @@ export const Header = ({ onAddTask }: HeaderProps) => {
   return (
     <header className={styles.header}>
       <img src={TodoLogo} alt="LogoTodo" />
-
       <form onSubmit={handleSubmit} className={styles.newTaskForm}>
         <input
           type="text"
