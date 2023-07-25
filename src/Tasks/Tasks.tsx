@@ -1,3 +1,4 @@
+import { Task } from '../Task/Task'
 import styles from './Tasks.module.css'
 
 export const Tasks = () => {
@@ -13,7 +14,9 @@ export const Tasks = () => {
           <span>0 de 10</span>
         </div>
       </header>
-      <div className={styles.listTasks}></div>
+      <div className={styles.listTasks}>
+        <Task />
+      </div>
     </section>
   )
 }
